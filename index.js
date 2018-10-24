@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const sampleInterval = 5;
-const sampleCount = 12;
-const threshold = 10;
+const sampleCount = 3;
+const threshold = 0;
 
 var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
@@ -30,11 +30,11 @@ function measureVelocity() {
             filter(
                 map(
                     ipVelocity,
-                    v => (v * 60)/(sampleInterval * sampleCount)
+                    v => v/(sampleInterval * sampleCount)
                 ),
                 v => v > threshold
             ),
-            v => `${v.toFixed(2)} per minute`
+            v => `${v.toFixed(2)} per second`
         )
     );
 }
