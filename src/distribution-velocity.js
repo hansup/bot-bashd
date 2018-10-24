@@ -2,7 +2,7 @@ var reduce = require('object.reduce');
 var map = require('object.map');
 
 function distributionVelocity(distributions) {
-    var sampleCount = distributions.length;
+    const sampleCount = distributions.length;
     if (!sampleCount) return {};
     return map(
         distributions.reduce(

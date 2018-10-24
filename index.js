@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 
 const sampleInterval = 5000;
-const velocitySampleCount = 3;
+const sampleCount = 12;
+const threshold = 10;
 
 var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
+var filter = require('object.filter');
+var map = require('object.map');
 
 var stdin = require('readline').createInterface({
     input: process.stdin,
@@ -18,15 +21,22 @@ function measureVelocity() {
     var ipSample = ipDistribution.get();
     ipDistribution.reset();
     ipSamples.push(ipSample);
-    if (ipSamples.length > velocitySampleCount) {
+    if (ipSamples.length > sampleCount) {
         ipSamples.shift();
     }
     var ipVelocity = distributionVelocity(ipSamples);
-    console.log('velocity', ipVelocity);
+    console.log('velocity',
+        map(
+            map(
+                ipVelocity,
+                v => (v * 60)/(sampleInterval * sampleCount)
+            ),
+            v => `${v.toFixed(2)} per minute`
+        )
+    );
 }
 
 function allDone() {
-    console.log('Distribution', ipDistribution.get())
 }
 
 stdin.on('line', ipDistribution.onLine);
