@@ -2,7 +2,7 @@
 
 const sampleInterval = 5;
 const sampleCount = 3;
-const threshold = 0;
+const threshold = 1;
 
 var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
