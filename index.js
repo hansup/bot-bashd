@@ -27,9 +27,12 @@ function measureVelocity() {
     var ipVelocity = distributionVelocity(ipSamples);
     console.log('velocity',
         map(
-            map(
-                ipVelocity,
-                v => (v * 60)/(sampleInterval * sampleCount)
+            filter(
+                map(
+                    ipVelocity,
+                    v => (v * 60)/(sampleInterval * sampleCount)
+                ),
+                v => v > threshold
             ),
             v => `${v.toFixed(2)} per minute`
         )
