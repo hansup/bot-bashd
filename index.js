@@ -2,13 +2,12 @@
 
 const sampleInterval = 5;
 const sampleCount = 3;
-const threshold = 1;
+const threshold = .5;
 
 var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
 var filter = require('object.filter');
 var map = require('object.map');
-var sort = require('object-sort');
 
 var stdin = require('readline').createInterface({
     input: process.stdin,
