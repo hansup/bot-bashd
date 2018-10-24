@@ -8,6 +8,7 @@ var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
 var filter = require('object.filter');
 var map = require('object.map');
+var sort = require('object-sort');
 
 var stdin = require('readline').createInterface({
     input: process.stdin,
@@ -24,19 +25,15 @@ function measureVelocity() {
     if (ipSamples.length > sampleCount) {
         ipSamples.shift();
     }
-    var ipVelocity = distributionVelocity(ipSamples);
-    console.log('velocity',
-        map(
-            filter(
-                map(
-                    ipVelocity,
-                    v => v/(sampleInterval * sampleCount)
-                ),
-                v => v > threshold
-            ),
-            v => `${v.toFixed(2)} per second`
-        )
-    );
+    var velocity = distributionVelocity(ipSamples);
+    var perSecond = map(velocity, v => v/(sampleInterval * sampleCount) );
+    var overThreshold = filter(perSecond, v => v > threshold );
+    var withUnits = Object.values(map( overThreshold, (v, k) => `${k} ${v.toFixed(2)} per second`));
+
+    if (withUnits.length) {
+        console.log(withUnits.join('\n'));
+        console.log();
+    }
 }
 
 function allDone() {
