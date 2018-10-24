@@ -7,11 +7,16 @@ function onLine(line) {
     distribution[ip] = (distribution[ip] || 0) + 1;
 }
 
-function getDistribution() {
+function get() {
     return distribution;
+}
+
+function reset() {
+    distribution = {};
 }
 
 module.exports = {
     onLine: onLine,
-    getDistribution: getDistribution
+    get: get,
+    reset: reset
 };

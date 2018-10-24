@@ -4,11 +4,11 @@ function onLine(line) {
     count ++;
 }
 
-function getCount() {
+function get() {
     return count;
 }
 
 module.exports = {
     onLine: onLine,
-    getCount: getCount
+    get: get
 };
