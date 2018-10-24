@@ -1,0 +1,11 @@
+{
+  "name": "bot-bash",
+  "version": "1.0.0",
+  "description": "Bash robots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stuart McFarlane",
+  "license": "ISC"
+}
