@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const sampleInterval = 5000;
+const sampleInterval = 5;
 const sampleCount = 12;
 const threshold = 10;
 
@@ -45,4 +45,4 @@ function allDone() {
 stdin.on('line', ipDistribution.onLine);
 stdin.on('close', allDone);
 
-setInterval(measureVelocity, sampleInterval);
+setInterval(measureVelocity, sampleInterval * 1000);
