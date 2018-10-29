@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 
-const sampleInterval = 5;
-const sampleCount = 3;
-const threshold = .5;
-
 var ipDistribution = require('./src/ip-distribution');
 var distributionVelocity = require('./src/distribution-velocity');
 var filter = require('object.filter');
 var map = require('object.map');
+
+const optionDefinitions = [
+    { name: 'threshold', alias: 't', type: Number },
+    { name: 'interval', alias: 'i', type: Number },
+    { name: 'window', alias: 'w', type: Number },
+];
+
+const commandLineArgs = require('command-line-args');
+const options = commandLineArgs(optionDefinitions);
+
+const sampleInterval = options.interval || 5;
+const sampleCount = options.window || 3;
+const threshold = options.threshold || 0.5;
 
 var stdin = require('readline').createInterface({
     input: process.stdin,

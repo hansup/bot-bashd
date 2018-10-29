@@ -9,6 +9,7 @@
   "author": "Stuart McFarlane",
   "license": "ISC",
   "dependencies": {
+    "command-line-args": "^5.0.2",
     "object-sort": "0.0.6",
     "object.filter": "^0.3.0",
     "object.map": "^1.0.1",
