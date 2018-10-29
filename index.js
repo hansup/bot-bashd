@@ -37,9 +37,10 @@ function measureVelocity() {
     var perSecond = map(velocity, v => v/(sampleInterval * sampleCount) );
     var overThreshold = filter(perSecond, v => v > threshold );
     var withUnits = Object.values(map( overThreshold, (v, k) => `${k} ${v.toFixed(2)} per second`));
+    var withTimestamp = Object.values(map( withUnits, (v, k) => `${new Date().toISOString()} ${v}`));
 
     if (withUnits.length) {
-        console.log(withUnits.join('\n'));
+        console.log(`${withTimestamp.join('\n')}`);
         console.log();
     }
 }
