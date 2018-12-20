@@ -1,0 +1,2 @@
+#!/bin/sh
+/usr/sbin/urlsnarf -ni eth1 | /usr/local/bin/bot-bash >> /var/log/bot-bashd.log &
