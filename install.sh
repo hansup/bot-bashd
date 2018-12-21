@@ -7,8 +7,6 @@ if [[ $(id -u) -ne 0 ]]; then
    exit 1
 fi
 
-NI=${1:eth1}
-
 # deploy files
 cp -dR system/etc/* /etc/
 cp -dR system/usr/* /usr/
@@ -26,6 +24,7 @@ chown root:staff    /etc/init.d/bot-bashd
 chown root:staff    /etc/logrotate.d/bot-bashd
 chown root:staff    /etc/logrotate.d/urlsnarf
 chown root:staff    /usr/sbin/bot-bashd
+chown root:staff    /usr/sbin/loadlogd
 chown root:staff    /usr/local/bin/bot-bash
 chown -R root:staff /usr/local/src/bot-bash
 
