@@ -8,4 +8,6 @@ function loop() {
     done
 }
 
+touch /var/log/loadlogd.log
+chown root:adm /var/log/loadlogd.log
 loop &
