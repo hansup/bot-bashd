@@ -21,6 +21,8 @@ cd -
 
 # fix permissions
 chown root:staff    /etc/init.d/bot-bashd
+chown root:staff    /etc/logrotate.d/bot-bashd
+chown root:staff    /etc/logrotate.d/urlsnarf
 chown root:staff    /usr/sbin/bot-bashd
 chown root:staff    /usr/local/bin/bot-bash
 chown -R root:staff /usr/local/src/bot-bash
