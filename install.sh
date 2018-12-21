@@ -5,9 +5,14 @@ if [[ $(id -u) -ne 0 ]]; then
    exit 1
 fi
 
+NI=${$1:=eth1}
+
 # deploy files
 cp -dR system/etc/* /etc/
 cp -dR system/usr/* /usr/
+
+# set network interface
+sed -i "s//eth1//${NI}//g" /etc/init.d/bot-bashd
 
 # make bot-bash
 cd /usr/local/bin/bot-bash

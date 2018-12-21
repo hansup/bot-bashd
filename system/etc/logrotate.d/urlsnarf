@@ -1,4 +1,4 @@
-/var/log/bot-bashd.log {
+/var/log/urlsnarf.log {
     daily
     missingok
     rotate 14
