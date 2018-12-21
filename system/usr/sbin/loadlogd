@@ -1,5 +1,11 @@
-while [ 1 ]
-do
-    cat /proc/loadavg
-    sleep 1
-done
+#!/bin/sh
+
+function loop() {
+    while [ 1 ]
+    do
+        cat /proc/loadavg
+        sleep 1
+    done
+}
+
+loop &
