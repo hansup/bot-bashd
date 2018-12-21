@@ -1,6 +1,6 @@
 #!/bin/sh
 /usr/sbin/urlsnarf -ni eth1 \
-    | tee -a /var/log/urlsnarf.log
+    | tee -a /var/log/urlsnarf.log \
     | /usr/local/bin/bot-bash \
     >> /var/log/bot-bashd.log \
     &
