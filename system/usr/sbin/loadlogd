@@ -3,7 +3,7 @@
 function loop() {
     while [ 1 ]
     do
-        cat /proc/loadavg
+        echo "$(date -u +%FT%TZ) $(cat /proc/loadavg)" >> /var/log/loadlogd.log
         sleep 1
     done
 }
