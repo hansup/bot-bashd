@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Install script for bot-bashd
 
 if [[ $(id -u) -ne 0 ]]; then
