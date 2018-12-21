@@ -7,7 +7,7 @@ if [[ $(id -u) -ne 0 ]]; then
    exit 1
 fi
 
-NI=${$1:=eth1}
+NI=${1:eth1}
 
 # deploy files
 cp -dR system/etc/* /etc/
@@ -19,7 +19,7 @@ sed -i "s/eth1/${NI}/g" /etc/init.d/bot-bashd
 # make bot-bash
 cd /usr/local/src/bot-bash
 npm install
-cd -
+cd - > /dev/null 2>&1
 
 # fix permissions
 chown root:staff    /etc/init.d/bot-bashd
