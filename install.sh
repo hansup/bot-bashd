@@ -12,7 +12,7 @@ cp -dR system/etc/* /etc/
 cp -dR system/usr/* /usr/
 
 # set network interface
-sed -i "s//eth1//${NI}//g" /etc/init.d/bot-bashd
+sed -i "s/eth1/${NI}/g" /etc/init.d/bot-bashd
 
 # make bot-bash
 cd /usr/local/bin/bot-bash
