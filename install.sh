@@ -22,8 +22,10 @@ npm install
 cd - > /dev/null 2>&1
 
 # fix permissions
-chown root:staff    /etc/init.d/bot-bashd
-chown root:staff    /etc/init.d/loadlogd
+chown root:root     /etc/init.d/bot-bashd
+chown root:root     /etc/init.d/loadlogd
+chmod 755           /etc/init.d/bot-bashd
+chmod 755           /etc/init.d/loadlogd
 chown root:staff    /etc/logrotate.d/bot-bashd
 chown root:staff    /etc/logrotate.d/urlsnarf
 chown root:staff    /etc/logrotate.d/loadlogd
