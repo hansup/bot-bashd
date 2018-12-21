@@ -15,7 +15,7 @@ cp -dR system/usr/* /usr/
 sed -i "s/eth1/${NI}/g" /etc/init.d/bot-bashd
 
 # make bot-bash
-cd /usr/local/bin/bot-bash
+cd /usr/local/src/bot-bash
 npm install
 cd -
 
